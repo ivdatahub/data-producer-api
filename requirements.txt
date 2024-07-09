@@ -1,8 +1,0 @@
-coverage==7.5.3
-exceptiongroup==1.2.1
-iniconfig==2.0.0
-packaging==24.0
-pluggy==1.5.0
-pytest==8.2.2
--e git+ssh://git@github.com/IvanildoBarauna/python-template.git@d891e737ce3709dd7ee34d639579628d75062e1d#egg=python_application
-tomli==2.0.1
