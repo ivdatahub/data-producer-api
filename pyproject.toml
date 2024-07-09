@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "python-application"
+version = "v1.0.0"
+description = "Python Application"
+authors = ["IvanildoBarauna <ivanildo.jnr@outlook.com>"]
+readme = "README.md"
+license = "MIT"
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pytest = "^8.2.2"
+coverage = "^7.5.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
