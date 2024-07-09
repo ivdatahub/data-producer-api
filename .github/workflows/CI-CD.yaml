@@ -27,10 +27,8 @@ jobs:
 
       - name: Run tests & CodeCov
         run: |
-          python -m venv .venv
-          source .venv/bin/activate
-          .venv/bin/python -m pip install --upgrade pip
-          pip install -e .
+          pip install --upgrade pip && pip install poetry
+          poetry config virtualenvs.create false && poetry install
           coverage run -m pytest
           coverage report
           coverage xml
@@ -41,16 +39,16 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml
 
-  build:
-    needs: test
-    if: github.actor != 'actions[bot]'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
+#  build:
+#    needs: test
+#    if: github.actor != 'actions[bot]'
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          ref: ${{ github.head_ref }}
 
-      - name: Build and Run Image
-        run: |
-          docker build -t python-app .
-          docker run python-app
+#      - name: Build and Run Image
+#        run: |
+#          docker build -t gcp-streaming-pipeline .
+#          docker run -p 8080:8080 gcp-streaming-pipeline
