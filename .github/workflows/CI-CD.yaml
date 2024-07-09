@@ -27,10 +27,8 @@ jobs:
 
       - name: Run tests & CodeCov
         run: |
-          python -m venv .venv
-          source .venv/bin/activate
-          .venv/bin/python -m pip install --upgrade pip
-          pip install -e .
+          pip install --upgrade pip && pip install poetry
+          poetry config virtualenvs.create false && poetry install
           coverage run -m pytest
           coverage report
           coverage xml
