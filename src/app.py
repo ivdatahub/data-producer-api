@@ -10,10 +10,18 @@ def receive_data():
         data = request.get_json(force=True)
         data_str = json.dumps(data)
         message = data_str.encode('utf-8')
-        return jsonify({
-            "status": "success",
-            "total_lines_received": len(data)
-        }), 200
+
+        if len(data) > 1:
+            return jsonify({
+                "status": "success",
+                "total_lines_received": len(data),
+            }), 200
+        else:
+            return jsonify({
+                "status": "success",
+                "received_data": data,
+            }), 200
+
     except Exception as e:
         return jsonify({"status": "error",
                         "message": "Bad Request",
