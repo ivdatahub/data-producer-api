@@ -1,6 +1,6 @@
 from flask import Flask
-from src.routes.ping import ping_bp
-from src.routes.send import send_bp
+from src.application.routes.ping import ping_bp
+from src.application.routes.send import send_bp
 
 
 def create_app():

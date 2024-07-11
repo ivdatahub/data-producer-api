@@ -1,5 +1,5 @@
 from flask import Blueprint
-from src.controller.ping_controller import ping
+from src.application.controller.ping_controller import ping
 
 ping_bp = Blueprint('ping', __name__)
 
