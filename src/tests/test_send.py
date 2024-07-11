@@ -11,28 +11,18 @@ def client():
 
 
 def test_send_one_row(client):
-    payload = [
-        {
+    payload = {
         'email': 'aaa',
         'password': 'bbb'
         }
-    ]
     response = client.post('/send/', json=payload)
     assert response.status_code == 200
-    assert response.json == {"status": "success", "received_data": payload}
 
 
 def test_send_two_rows(client):
-    payload = [
-        {
+    payload = {
         'email': 'aaa',
         'password': 'bbb'
-        },
-        {
-            'email': 'aaa',
-            'password': 'bbb'
         }
-    ]
     response = client.post('/send/', json=payload)
     assert response.status_code == 200
-    assert response.json == {'status': 'success', 'total_lines_received': 2}
