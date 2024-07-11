@@ -28,7 +28,7 @@ RUN poetry config virtualenvs.create false \
 COPY . .
 
 # Configure o Flask
-ENV FLASK_APP=./src/app.py
+ENV FLASK_APP=src/app.py
 
 # Exponha a porta que o Flask está utilizando
 EXPOSE 8080

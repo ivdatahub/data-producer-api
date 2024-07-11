@@ -1,33 +1,18 @@
-from flask import Flask, request, jsonify
-import json
-
-app = Flask(__name__)
-
-
-@app.route('/api/data', methods=['POST'])
-def receive_data():
-    try:
-        data = request.get_json(force=True)
-        data_str = json.dumps(data)
-        message = data_str.encode('utf-8')
-
-        if len(data) > 1:
-            return jsonify({
-                "status": "success",
-                "total_lines_received": len(data),
-            }), 200
-        else:
-            return jsonify({
-                "status": "success",
-                "received_data": data,
-            }), 200
-
-    except Exception as e:
-        return jsonify({"status": "error",
-                        "message": "Bad Request",
-                        "exception": e
-                        }), 400
+from flask import Flask
+from src.routes.ping import ping_bp
+from src.routes.send import send_bp
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+def create_app():
+    app = Flask(__name__)
+
+    # Register blueprints
+    app.register_blueprint(ping_bp, url_prefix='/ping')
+    app.register_blueprint(send_bp, url_prefix='/send')
+
+    return app
+
+
+if __name__ == '__main__':  # pragma: no cover
+    app = create_app()  # pragma: no cover
+    app.run(host='0.0.0.0', port=8080)  # pragma: no cover
