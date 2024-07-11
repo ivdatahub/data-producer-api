@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "GCP-streaming-pipeline"
+name = "gcp-streaming-pipeline"
 version = "v1.0.0"
 description = "Complete ETL and scalable solution using GCP "
 authors = ["IvanildoBarauna <ivanildo.jnr@outlook.com>"]
