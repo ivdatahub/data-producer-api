@@ -27,11 +27,8 @@ RUN poetry config virtualenvs.create false \
 # Copie o restante dos arquivos para o diretório de trabalho
 COPY . .
 
-# Configure o Flask
-ENV FLASK_APP=src/app.py
-
-# Exponha a porta que o Flask está utilizando
+# Exponha a porta que o FastAPI está utilizando
 EXPOSE 8080
 
-# Comando para iniciar o Flask quando o contêiner for iniciado
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+# Comando para iniciar a aplicação
+CMD ["uvicorn", "src.run:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
