@@ -12,5 +12,5 @@ async def ping():
 @app.post("/send")
 async def send_route(request: Request):
     body = await request.json()
-    response = await send(body)
+    response = send(body)
     return response
