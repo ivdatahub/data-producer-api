@@ -1,22 +1,22 @@
 from src.application.ports.send_api_data import ISendApiData
 from typing import Type
-from flask import request, jsonify
+from fastapi import Request, HTTPException
 
 
 class SendService:
     @staticmethod
-    def send(send_repository: Type[ISendApiData], request: Type[request]) -> tuple:
+    def send(send_repository: Type[ISendApiData], request_body: dict) -> dict:
         try:
-            data = request.get_json()
+            data = request_body
         except Exception as e:
-            jsonify({"status": "error"}, data), 400  # Bad Request
+            raise HTTPException(status_code=400, detail="Invalid JSON format")
 
-        send = send_repository.send_data(data=data)
+        send = send_repository.send_data(data=request_body)
 
         if send["status"] == "success":
-            return jsonify(send), 200
+            return {"status": "ok"}
         else:
-            return jsonify(send), 502  # Bad Gateway
+            raise HTTPException(status_code=502, detail="Error sending API data")
 
 
 
