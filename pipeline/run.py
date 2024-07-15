@@ -1,3 +1,4 @@
+import uuid
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
@@ -12,15 +13,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-pipeline_options = PipelineOptions.from_dictionary(BeamConfig(SetupBeamEnv.PROD).get_pipeline_options())
+pipeline_options = PipelineOptions.from_dictionary(BeamConfig(SetupBeamEnv.TEST).get_pipeline_options())
 
 with beam.Pipeline(options=pipeline_options) as p:
     (p
      | 'ReadFromPubSub' >> beam.io.ReadFromPubSub(subscription='projects/ivanildobarauna/subscriptions/gcp-streaming-pipeline-pull')
-     | 'Window' >> beam.WindowInto(beam.window.FixedWindows(1))
-     | 'WriteToGCS' >> beam.io.WriteToText(
-                'gs://gcp-streaming-pipeline-dataflow/output/test.txt',
-                file_name_suffix='.txt', num_shards=1
-            )
+     | 'Window' >> beam.WindowInto(beam.window.FixedWindows(60))
+     | 'Decode' >> beam.Map(lambda x: x.decode('utf-8'))
+     | 'PrintMessage' >> beam.Map(print)
      )
-
