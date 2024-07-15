@@ -1,5 +1,5 @@
 import json
-from src.application.ports.send_api_data import ISendApiData
+from api.application.ports.send_api_data import ISendApiData
 from google.cloud import pubsub_v1
 
 

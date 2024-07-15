@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from src.application.controller.send_controller import send
+from api.application.controller.send_controller import send
 
 app = FastAPI()
 

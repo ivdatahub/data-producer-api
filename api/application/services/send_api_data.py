@@ -1,4 +1,4 @@
-from src.application.ports.send_api_data import ISendApiData
+from api.application.ports.send_api_data import ISendApiData
 from typing import Type
 from fastapi import Request, HTTPException
 
