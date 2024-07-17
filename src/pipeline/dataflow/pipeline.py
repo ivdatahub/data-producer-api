@@ -4,8 +4,8 @@ from apache_beam.options.pipeline_options import PipelineOptions
 
 import logging
 
-from config.beam_config import BeamConfig, SetupBeamEnv
-
+from src.pipeline.config.beam_config import BeamConfig
+from src.pipeline.config.common import EnvSetup
 
 logging.basicConfig(
     level=logging.INFO,
@@ -13,12 +13,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-pipeline_options = PipelineOptions.from_dictionary(BeamConfig(SetupBeamEnv.TEST).get_pipeline_options())
+pipeline_options = PipelineOptions.from_dictionary(BeamConfig(EnvSetup.TEST).get_pipeline_options())
 
 with beam.Pipeline(options=pipeline_options) as p:
     (p
      | 'ReadFromPubSub' >> beam.io.ReadFromPubSub(subscription='projects/ivanildobarauna/subscriptions/gcp-streaming-pipeline-pull')
-     | 'Window' >> beam.WindowInto(beam.window.FixedWindows(60))
      | 'Decode' >> beam.Map(lambda x: x.decode('utf-8'))
      | 'PrintMessage' >> beam.Map(print)
      )

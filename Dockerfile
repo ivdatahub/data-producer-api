@@ -31,4 +31,4 @@ COPY . .
 EXPOSE 8080
 
 # Comando para iniciar a aplicação
-CMD ["uvicorn", "api.run:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+CMD ["uvicorn", "src.api.run:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]

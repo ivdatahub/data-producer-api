@@ -1,5 +1,5 @@
-from api.application.services.send_api_data import SendService
-from api.adapters.pubsub import PubSub
+from src.api.application.services.send_api_data import SendService
+from src.api.adapters.pubsub import PubSub
 
 
 def send(request_body: dict):

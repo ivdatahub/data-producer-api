@@ -1,21 +1,12 @@
-from enum import Enum
-from datetime import datetime
-
-
-class SetupBeamEnv(Enum):
-    PROD = 0,
-    TEST = 1
-
-
-def default_timestamp_str() -> str: return str(int(datetime.now().timestamp()))
+from common import default_timestamp_str, EnvSetup
 
 
 class BeamConfig:
-    def __init__(self, env: SetupBeamEnv):
+    def __init__(self, env: EnvSetup):
         self.env = env
 
     def get_pipeline_options(self) -> dict:
-        if self.env == SetupBeamEnv.PROD:
+        if self.env == EnvSetup.PROD:
             return {
                 'runner': 'DataflowRunner',
                 'project': 'ivanildobarauna',
