@@ -12,7 +12,8 @@ pipeline_options = PipelineOptions.from_dictionary(BeamConfig(EnvSetup.TEST).get
 
 
 def set_key(element):
-    return "test", element
+    key = eval(element)["processed_at"]
+    return key, element
 
 def count_messages(element):
     return len(element[1])
@@ -20,7 +21,7 @@ def count_messages(element):
 
 def add_timestamp(element):
     dic = eval(element)
-    dic["processed_at"] = default_timestamp_formated()
+    dic["processed_at"] = str(default_timestamp_formated())
     return str(dic)
 
 
@@ -39,8 +40,7 @@ with beam.Pipeline(options=pipeline_options) as p:
      | 'CreateKey' >> beam.Map(set_key)
      | 'Window' >> beam.WindowInto(beam.window.FixedWindows(5))
      | 'GroupbyMessage' >> beam.GroupByKey()
-     # | 'CountMessage' >> beam.Map(count_messages)
-     | 'Print' >> beam.Map(print)
+     | 'Print' >> beam.Map(lambda x: print(x[0], "Qtde Messages Processed: ", len(x[1])))
 
      # | 'PrintKey' >> beam.Map(print)
      # | 'PrintMessage' >> beam.Map(print)
