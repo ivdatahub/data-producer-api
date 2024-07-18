@@ -38,7 +38,7 @@ with beam.Pipeline(options=pipeline_options) as p:
      | 'AddTimestamp' >> beam.Map(add_timestamp)
      | 'TransformTimestamp' >> beam.Map(timestamp_to_datetime)
      | 'CreateKey' >> beam.Map(set_key)
-     | 'Window' >> beam.WindowInto(beam.window.FixedWindows(5))
+     | 'Window' >> beam.WindowInto(beam.window.FixedWindows(60))
      | 'GroupbyMessage' >> beam.GroupByKey()
      | 'Print' >> beam.Map(lambda x: print(x[0], "Qtde Messages Processed: ", len(x[1])))
 
