@@ -28,7 +28,7 @@ spark_session = SparkSession.builder \
 
 
 project_id = "ivanildobarauna"
-subscription = "projects/ivanildobarauna/subscriptions/gcp-streaming-pipeline-sub-bq"
+subscription = "projects/ivanildobarauna/subscriptions/src-sub-bq"
 
 # Lê dados do Pub/Sub
 df = spark_session.readStream \

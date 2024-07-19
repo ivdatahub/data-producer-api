@@ -1,47 +1,31 @@
+from datetime import datetime
+
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
 from src.pipeline.config.common import logger, default_timestamp_formated
 from src.pipeline.config.beam_config import BeamConfig
-from src.pipeline.config.common import EnvSetup
-from datetime import datetime
-
-pipeline_logger = logger()
-
-pipeline_options = PipelineOptions.from_dictionary(BeamConfig(EnvSetup.TEST).get_pipeline_options())
+from src.pipeline.config.common import EnvSetup, Constants
 
 
 def set_key(element):
-    key = eval(element)["processed_at"]
-    return key, element
-
-def count_messages(element):
-    return len(element[1])
+    key = eval(element)["created_at"]
+    return str(key)[:8], element
 
 
-def add_timestamp(element):
-    dic = eval(element)
-    dic["processed_at"] = str(default_timestamp_formated())
-    return str(dic)
+def print_count(element):
+    timestamp, item, count = element
+    print(f"{default_timestamp_formated()} Qtde Messages Processed: {len(item)}")
 
 
-def timestamp_to_datetime(element):
-    dic = eval(element)
-    dic["created_at"] = str(datetime.fromtimestamp(dic["created_at"]))
-    return str(dic)
-
+pipeline_logger = logger()
+pipeline_options = PipelineOptions.from_dictionary(BeamConfig(EnvSetup.TEST).get_pipeline_options())
 
 with beam.Pipeline(options=pipeline_options) as p:
-    (p
-     | 'ReadFromPubSub' >> beam.io.ReadFromPubSub(subscription='projects/ivanildobarauna/subscriptions/gcp-streaming-pipeline-pull')
-     | 'Decode' >> beam.Map(lambda x: x.decode('utf-8'))
-     | 'AddTimestamp' >> beam.Map(add_timestamp)
-     | 'TransformTimestamp' >> beam.Map(timestamp_to_datetime)
-     | 'CreateKey' >> beam.Map(set_key)
-     | 'Window' >> beam.WindowInto(beam.window.FixedWindows(60))
-     | 'GroupbyMessage' >> beam.GroupByKey()
-     | 'Print' >> beam.Map(lambda x: print(x[0], "Qtde Messages Processed: ", len(x[1])))
-
-     # | 'PrintKey' >> beam.Map(print)
-     # | 'PrintMessage' >> beam.Map(print)
-     )
+    messages = p | 'ReadFromPubSub' >> beam.io.ReadFromPubSub(subscription=Constants.PUBSUB_SUBSCRIPTION)
+    decoded_messages = messages | 'Decode' >> beam.Map(lambda x: x.decode('utf-8'))
+    keyed_messages = decoded_messages | 'CreateKey' >> beam.Map(set_key)
+    windowed_messages = keyed_messages | 'Window' >> beam.WindowInto(beam.window.FixedWindows(5))
+    grouped_messages = windowed_messages | 'GroupbyMessage' >> beam.GroupByKey()
+    counted_messages = grouped_messages | 'CountPerWindow' >> beam.combiners.Count.PerElement()
+    counted_messages | 'Print' >> beam.Map(print)

@@ -50,5 +50,5 @@ jobs:
 
 #      - name: Build and Run Image
 #        run: |
-#          docker build -t gcp-streaming-pipeline .
-#          docker run -p 8080:8080 gcp-streaming-pipeline
+#          docker build -t src .
+#          docker run -p 8080:8080 src
