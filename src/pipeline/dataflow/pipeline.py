@@ -14,8 +14,7 @@ def set_key(element):
 
 
 def print_count(element):
-    timestamp, item, count = element
-    print(f"{default_timestamp_formated()} Qtde Messages Processed: {len(item)}")
+    print(f"{default_timestamp_formated()} Qtde Messages Processed: {len(element[0][1])}")
 
 
 pipeline_logger = logger()
@@ -28,4 +27,4 @@ with beam.Pipeline(options=pipeline_options) as p:
     windowed_messages = keyed_messages | 'Window' >> beam.WindowInto(beam.window.FixedWindows(5))
     grouped_messages = windowed_messages | 'GroupbyMessage' >> beam.GroupByKey()
     counted_messages = grouped_messages | 'CountPerWindow' >> beam.combiners.Count.PerElement()
-    counted_messages | 'Print' >> beam.Map(print)
+    counted_messages | 'Print' >> beam.Map(print_count)
