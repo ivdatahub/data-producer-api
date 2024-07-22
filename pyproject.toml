@@ -11,7 +11,7 @@ packages = [{ include = "src" }]
 python = "^3.9"
 google-cloud-pubsub = "^2.22.0"
 fastapi = "^0.111.0"
-uvicorn = "^0.30.1"
+uvicorn = "^0.30.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
