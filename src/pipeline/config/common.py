@@ -3,11 +3,14 @@ from enum import Enum
 import logging
 
 
+<<<<<<< HEAD
 class Constants:
     GCP_PROJECT = "ivanildobarauna"
     PUBSUB_SUBSCRIPTION = f"projects/{GCP_PROJECT}/subscriptions/gcp-streaming-pipeline-pull"
 
 
+=======
+>>>>>>> c1f3495 (feature: Dataflow changes development)
 def default_timestamp_str() -> str: return str(int(datetime.now().timestamp()))
 
 
@@ -22,7 +25,11 @@ class EnvSetup(Enum):
 
 def logger():
     logging.basicConfig(
+<<<<<<< HEAD
         level=logging.CRITICAL,
+=======
+        level=logging.INFO,
+>>>>>>> c1f3495 (feature: Dataflow changes development)
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     return logging.getLogger()
