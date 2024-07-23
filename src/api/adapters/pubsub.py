@@ -10,17 +10,22 @@ class PubSub(ISendApiData):
         message = data_str.encode('utf-8')
 
         publisher = pubsub_v1.PublisherClient()
-        topic_name = "projects/ivanildobarauna/topics/src"
-        future = publisher.publish(topic_name, data=message)
+        topic_name = "projects/ivanildobarauna/topics/gcp-streaming-pipeline"
 
-        if future.result():
-            return {
-                "status": "success",
-                "message_id": future.result()
-            }
-        else:
+        try:
+            future = publisher.publish(topic_name, data=message)
+        except Exception as e:
+            print(f"Error sending message to Pub/Sub topic: {topic_name}")
+            raise e
+
+        if not future.result():
             return {
                 "status": "error",
                 "data": data,
                 "future": future
+            }
+
+        return {
+                "status": "success",
+                "message_id": future.result()
             }

@@ -22,7 +22,7 @@ COPY pyproject.toml poetry.lock ./
 
 # Instale as dependências usando Poetry
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-dev
+    && poetry install --only main
 
 # Copie o restante dos arquivos para o diretório de trabalho
 COPY . .
