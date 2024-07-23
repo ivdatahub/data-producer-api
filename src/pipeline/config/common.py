@@ -22,7 +22,7 @@ class EnvSetup(Enum):
 
 def logger():
     logging.basicConfig(
-        level=logging.ERROR,
+        level=logging.CRITICAL,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     return logging.getLogger()
