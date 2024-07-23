@@ -22,7 +22,7 @@ COPY pyproject.toml poetry.lock ./
 
 # Instale as dependências usando Poetry
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-dev
+    && poetry install --only main
 
 # Copie o restante dos arquivos para o diretório de trabalho
 COPY . .
@@ -31,4 +31,4 @@ COPY . .
 EXPOSE 8080
 
 # Comando para iniciar a aplicação
-CMD ["uvicorn", "src.run:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+CMD ["uvicorn", "src.api.run:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]

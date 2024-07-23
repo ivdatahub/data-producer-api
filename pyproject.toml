@@ -10,13 +10,20 @@ packages = [{ include = "src" }]
 [tool.poetry.dependencies]
 python = "^3.9"
 google-cloud-pubsub = "^2.22.0"
-fastapi = "^0.111.0"
-uvicorn = "^0.30.1"
+fastapi = "^0.111.1"
+uvicorn = "^0.30.3"
+
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
 coverage = "^7.5.4"
 pytest-mock = "^3.14.0"
+apache-beam = {extras = ["gcp"], version = "^2.57.0"}
+
+#[tool.setuptools.packages.find]
+#where = ["gcp-streaming-pipeline"]
+#include = ["*"]
+
 
 [build-system]
 requires = ["poetry-core"]
