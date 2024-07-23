@@ -12,11 +12,19 @@ python = "^3.9"
 google-cloud-pubsub = "^2.22.0"
 fastapi = "^0.111.1"
 uvicorn = "^0.30.1"
+apache-beam = {extras = ["gcp"], version = "^2.57.0"}
+pyspark = {extras = ["connect"], version = "^3.5.1"}
+py4j = "^0.10.9.7"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
 coverage = "^7.5.4"
 pytest-mock = "^3.14.0"
+
+#[tool.setuptools.packages.find]
+#where = ["gcp-streaming-pipeline"]
+#include = ["*"]
+
 
 [build-system]
 requires = ["poetry-core"]

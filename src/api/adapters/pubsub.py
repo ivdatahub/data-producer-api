@@ -1,5 +1,5 @@
 import json
-from src.application.ports.send_api_data import ISendApiData
+from src.api.application.ports.send_api_data import ISendApiData
 from google.cloud import pubsub_v1
 
 
@@ -10,7 +10,7 @@ class PubSub(ISendApiData):
         message = data_str.encode('utf-8')
 
         publisher = pubsub_v1.PublisherClient()
-        topic_name = "projects/ivanildobarauna/topics/gcp-streaming-pipeline"
+        topic_name = "projects/ivanildobarauna/topics/src"
         future = publisher.publish(topic_name, data=message)
 
         if future.result():
