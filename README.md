@@ -26,8 +26,14 @@ The pipeline will be implemented using Google Cloud Platform (GCP) services, inc
 ## Cloud Stack (GCP)
 <img src="docs/icons/cloud-build.png" Alt="Cloud Build" width="50" height="50"><img src="docs/icons/artifact-registry.png" Alt="Artifact Registry" width="50" height="50"><img src="docs/icons/cloud-run.png" Alt="Cloud Run" width="50" height="50"><img src="docs/icons/pubsub.png" Alt="Pub/Sub" width="50" height="50"><img src="docs/icons/dataflow.png" Alt="Dataflow" width="50" height="50"><img src="docs/icons/bigquery.png" Alt="BigQuery" width="50" height="50">
 
+- Cloud Build: Continuous Integration and Continuous Deployment (CI/CD) service provided by GCP integrated with GitHub Actions
+- Artifact Registry: Private Docker container registry provided by GCP for storing FastAPI image.
+- Cloud Run: Fully managed serverless container runtime provided by GCP for running FastAPI Application.
+- Pub/Sub: Messaging service provided by GCP for sending and receiving messages between FastAPI and Dataflow pipeline.
+- Dataflow: Serverless data processing service provided by GCP for executing the ETL process.
+- BigQuery: Fully managed, serverless data warehouse provided by GCP for storing and analyzing large datasets.
 
-## Continuous Integration and Continuous Deployment (CI/CD)
+## Continuous Integration and Continuous Deployment (CI/CD, DevOps)
 ![My Skills](https://skillicons.dev/icons?i=githubactions)
 
 
