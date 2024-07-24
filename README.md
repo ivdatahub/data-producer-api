@@ -1,6 +1,4 @@
-# GCP-streaming-pipeline: Data Pipeline for consume API Data in Near Real Time
-
-## Project summary
+## GCP-streaming-pipeline: Data Pipeline for consume API Data in Near Real Time
 
 This project aims to develop a data pipeline for consuming API data in near real time.
 The pipeline will be responsible for extracting data from an API, transforming it into a suitable format, and loading it into a data storage system.
@@ -20,17 +18,10 @@ The pipeline will be implemented using Google Cloud Platform (GCP) services, inc
 
 ## Development Stack
 
-<img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" Alt="Python" width="50" height="50">
-<img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" Alt="Docker" width="50" height="50">
-<img src="https://github.com/devicons/devicon/blob/master/icons/poetry/poetry-original.svg" Alt="Poetry" width="50" height="50">
+<img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" Alt="Python" width="50" height="50"><img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" Alt="Docker" width="50" height="50"><img src="https://github.com/devicons/devicon/blob/master/icons/poetry/poetry-original.svg" Alt="Poetry" width="50" height="50">
 
 ## GCP Stack
-<img src="docs/icons/cloud-build.png" Alt="AR" width="50" height="50">
-<img src="docs/icons/artifact-registry.png" Alt="AR" width="50" height="50">
-<img src="docs/icons/cloud-run.png" Alt="AR" width="50" height="50">
-<img src="docs/icons/pubsub.png" Alt="AR" width="50" height="50">
-<img src="docs/icons/dataflow.png" Alt="AR" width="50" height="50">
-<img src="docs/icons/bigquery.png" Alt="AR" width="50" height="50">
+<img src="docs/icons/cloud-build.png" Alt="AR" width="50" height="50"><img src="docs/icons/artifact-registry.png" Alt="AR" width="50" height="50"><img src="docs/icons/cloud-run.png" Alt="AR" width="50" height="50"><img src="docs/icons/pubsub.png" Alt="AR" width="50" height="50"><img src="docs/icons/dataflow.png" Alt="AR" width="50" height="50"><img src="docs/icons/bigquery.png" Alt="AR" width="50" height="50">
 
 
 ## Continuous Integration and Continuous Deployment (CI/CD)
