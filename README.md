@@ -1,4 +1,4 @@
-## GCP-streaming-pipeline: Data Pipeline for consume API Data in Near Real Time
+## GCP-streaming-pipeline: Data Pipeline for ingest Data in Near Real Time
 
 This project aims to develop a data pipeline for consuming API data in near real time.
 The pipeline will be responsible for extracting data from an API, transforming it into a suitable format, and loading it into a data storage system.
