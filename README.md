@@ -29,7 +29,8 @@ The pipeline will be implemented using Google Cloud Platform (GCP) services, inc
 
 
 ## Continuous Integration and Continuous Deployment (CI/CD)
-![Git](https://github.com/devicons/devicon/blob/master/icons/githubactions/githubactions-original.svg)
+<img src="https://github.com/devicons/devicon/blob/master/icons/githubactions/githubactions-original.svg" Alt="GitActions" width="50" height="50">
+
 
 
 ## Contributing
