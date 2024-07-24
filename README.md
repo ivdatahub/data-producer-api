@@ -24,36 +24,12 @@ The pipeline will be implemented using Google Cloud Platform (GCP) services, inc
 <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" Alt="Python" width="50" height="50"><img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" Alt="Docker" width="50" height="50"><img src="https://github.com/devicons/devicon/blob/master/icons/poetry/poetry-original.svg" Alt="Poetry" width="50" height="50">
 
 ## GCP Stack
-<div style="display: flex; flex-wrap: wrap; justify-content: center;">
-    <div style="flex: 1; text-align: center; margin: 10px;">
-        <img src="docs/icons/cloud-build.png" Alt="Cloud Build" width="50" height="50">
-        <p>Cloud Build</p>
-    </div>
-    <div style="flex: 1; text-align: center; margin: 10px;">
-        <img src="docs/icons/artifact-registry.png" Alt="Artifact Registry" width="50" height="50">
-        <p>Artifact Registry</p>
-    </div>
-    <div style="flex: 1; text-align: center; margin: 10px;">
-        <img src="docs/icons/cloud-run.png" Alt="Cloud Run" width="50" height="50">
-        <p>Cloud Run</p>
-    </div>
-    <div style="flex: 1; text-align: center; margin: 10px;">
-        <img src="docs/icons/pubsub.png" Alt="Pub/Sub" width="50" height="50">
-        <p>Pub/Sub</p>
-    </div>
-    <div style="flex: 1; text-align: center; margin: 10px;">
-        <img src="docs/icons/dataflow.png" Alt="Dataflow" width="50" height="50">
-        <p>Dataflow</p>
-    </div>
-    <div style="flex: 1; text-align: center; margin: 10px;">
-        <img src="docs/icons/bigquery.png" Alt="BigQuery" width="50" height="50">
-        <p>BigQuery</p>
-    </div>
-</div>
+<img src="docs/icons/cloud-build.png" Alt="Cloud Build" width="50" height="50"><img src="docs/icons/artifact-registry.png" Alt="Artifact Registry" width="50" height="50"><img src="docs/icons/cloud-run.png" Alt="Cloud Run" width="50" height="50"><img src="docs/icons/pubsub.png" Alt="Pub/Sub" width="50" height="50"><img src="docs/icons/dataflow.png" Alt="Dataflow" width="50" height="50"><img src="docs/icons/bigquery.png" Alt="BigQuery" width="50" height="50">
+
 
 
 ## Continuous Integration and Continuous Deployment (CI/CD)
-<img src="https://github.com/devicons/devicon/blob/master/icons/githubactions/githubactions-original.svg" Alt="Cloud Build" width="50" height="50">
+![Git](https://github.com/devicons/devicon/blob/master/icons/githubactions/githubactions-original.svg)
 
 
 ## Contributing
