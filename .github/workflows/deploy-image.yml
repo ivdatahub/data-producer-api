@@ -64,5 +64,5 @@ jobs:
 
 
     environment:
-        name: Production
+        name: registry-production
         url: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
