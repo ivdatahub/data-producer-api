@@ -1,12 +1,8 @@
-## GCP-streaming-pipeline: Data Pipeline for ingest Data in Near Real Time
-
-This project aims to develop a data pipeline for consuming API data in near real time.
-The pipeline will be responsible for extracting data from an API, transforming it into a suitable format, and loading it into a data storage system.
-The pipeline will be implemented using Google Cloud Platform (GCP) services, including Cloud Pub/Sub, Cloud Run, and Cloud Storage and Cloud BigQuery.
-
+## GCP-streaming-pipeline: Data Pipeline for ingest data in near real time
 ![Project Status](https://img.shields.io/badge/status-development-yellow?style=for-the-badge&logo=github)
-![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=mit)
 ![Python Version](https://img.shields.io/badge/python-3.9-blue?style=for-the-badge&logo=python)
+![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=mit)
+
 
 ![Black](https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge&logo=python)
 ![pylint](https://img.shields.io/badge/pylint-10.00-green?style=for-the-badge&logo=python)
@@ -15,6 +11,13 @@ The pipeline will be implemented using Google Cloud Platform (GCP) services, inc
 [![GCP-DEPLOY](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/GCP-streaming-pipeline/deploy-cloud-run.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=DOCKER-DEPLOY)](https://github.com/IvanildoBarauna/GCP-streaming-pipeline/actions/workflows/deploy-cloud-run.yaml)
 
 [![Codecov](https://img.shields.io/codecov/c/github/IvanildoBarauna/GCP-streaming-pipeline?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/IvanildoBarauna/GCP-streaming-pipeline)
+
+## Project Summary
+
+This project aims to develop a data pipeline for consuming API data in near real time.
+The pipeline will be responsible for extracting data from an API, transforming it into a suitable format, and loading it into a data storage system.
+The pipeline will be implemented using Google Cloud Platform (GCP) services, including Cloud Pub/Sub, Cloud Run, and Cloud Storage and Cloud BigQuery.
+
 
 ## Development Stack
 
