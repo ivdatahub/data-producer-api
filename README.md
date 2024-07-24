@@ -7,8 +7,9 @@
 ![Black](https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge&logo=python)
 ![pylint](https://img.shields.io/badge/pylint-10.00-green?style=for-the-badge&logo=python)
 
-[![CI-CD](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/GCP-streaming-pipeline/CI-CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=CI-CD)](https://github.com/IvanildoBarauna/GCP-streaming-pipeline/actions/workflows/CI-CD.yml)
-[![GCP-DEPLOY](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/GCP-streaming-pipeline/deploy-cloud-run.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=DOCKER-DEPLOY)](https://github.com/IvanildoBarauna/GCP-streaming-pipeline/actions/workflows/deploy-cloud-run.yaml)
+[![CI-CD](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/GCP-streaming-pipeline/CI-CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=Tests)](https://github.com/IvanildoBarauna/GCP-streaming-pipeline/actions/workflows/CI-CD.yml)
+[![GCP-DEPLOY](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/GCP-streaming-pipeline/deploy-cloud-run.yaml?&style=for-the-badge&logo=google&cacheSeconds=60&label=Cloud+Run+Deploy)](https://github.com/IvanildoBarauna/GCP-streaming-pipeline/actions/workflows/deploy-cloud-run.yaml)
+[![IMAGE-DEPLOY](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/GCP-streaming-pipeline/deploy-image.yml?&style=for-the-badge&logo=github&cacheSeconds=60&label=Image+Deploy)](https://github.com/IvanildoBarauna/GCP-streaming-pipeline/actions/workflows/deploy-cloud-run.yaml)
 
 [![Codecov](https://img.shields.io/codecov/c/github/IvanildoBarauna/GCP-streaming-pipeline?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/IvanildoBarauna/GCP-streaming-pipeline)
 
@@ -55,7 +56,7 @@ See the following docs:
 
 - Configuration Management: Use of a configuration module to manage project_id and others env variables, providing flexibility and ease of adjustment.
 
-- Continuous Integration and Continuous Deployment: Use of CI/CD pipelines to automate the build, test and deployment processes, ensuring that the application is always up to date and ready for use.
+- Continuous Integration and Continuous Deployment: Use of CI/CD pipelines to automate the build, test and deployment processes, ensuring that the application is always up-to-date and ready for use.
 
 - Code Quality: Use of code quality tools such as linters and formatters to ensure that the codebase is clean, consistent and easy to read.
 
