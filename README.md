@@ -21,15 +21,14 @@ The pipeline will be implemented using Google Cloud Platform (GCP) services, inc
 
 ## Development Stack
 
-<img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" Alt="Python" width="50" height="50"><img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" Alt="Docker" width="50" height="50"><img src="https://github.com/devicons/devicon/blob/master/icons/poetry/poetry-original.svg" Alt="Poetry" width="50" height="50">
+[![My Skills](https://skillicons.dev/icons?i=pycharm,python,github,gcp,docker,fastapi,postman&perline=7)](https://skillicons.dev)
 
-## GCP Stack
+## Cloud Stack (GCP)
 <img src="docs/icons/cloud-build.png" Alt="Cloud Build" width="50" height="50"><img src="docs/icons/artifact-registry.png" Alt="Artifact Registry" width="50" height="50"><img src="docs/icons/cloud-run.png" Alt="Cloud Run" width="50" height="50"><img src="docs/icons/pubsub.png" Alt="Pub/Sub" width="50" height="50"><img src="docs/icons/dataflow.png" Alt="Dataflow" width="50" height="50"><img src="docs/icons/bigquery.png" Alt="BigQuery" width="50" height="50">
 
 
-
 ## Continuous Integration and Continuous Deployment (CI/CD)
-<img src="https://github.com/devicons/devicon/blob/master/icons/githubactions/githubactions-original.svg" Alt="GitActions" width="50" height="50">
+![My Skills](https://skillicons.dev/icons?i=githubactions)
 
 
 
