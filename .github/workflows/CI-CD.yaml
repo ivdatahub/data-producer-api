@@ -39,16 +39,6 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml
 
-#  build:
-#    needs: test
-#    if: github.actor != 'actions[bot]'
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#        with:
-#          ref: ${{ github.head_ref }}
-
-#      - name: Build and Run Image
-#        run: |
-#          docker build -t src .
-#          docker run -p 8080:8080 src
+    environment:
+      name: development
+      url: https://github.com/IvanildoBarauna/GCP-streaming-pipeline/actions/workflows/CI-CD.yaml
