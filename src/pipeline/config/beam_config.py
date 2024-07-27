@@ -11,8 +11,8 @@ class BeamConfig:
                 'runner': 'DataflowRunner',
                 'project': 'ivanildobarauna',
                 'region': 'us-central1',
-                'temp_location': ' gs://src-dataflow/temp',
-                'staging_location': 'gs://src-dataflow/staging',
+                'temp_location': 'gs://gcp-streaming-pipeline-dataflow/dataflow/temp',
+                'staging_location': 'gs://gcp-streaming-pipeline-dataflow/temp',
                 'min_workers': 1,
                 'num_workers': 1,
                 'max_num_workers': 2,
@@ -21,7 +21,7 @@ class BeamConfig:
                 'machine_type': 'n1-standard-1',
                 'job_name': f'src{default_timestamp_str()}',
                 'disk_size_gb': '10',
-                'streaming': True
+                'streaming': True,
             }
         else:
             return {

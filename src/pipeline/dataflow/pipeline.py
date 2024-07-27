@@ -1,9 +1,7 @@
-from datetime import datetime
-
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
-from src.pipeline.config.common import logger, default_timestamp_formated
+from src.pipeline.config.common import default_timestamp_formated
 from src.pipeline.config.beam_config import BeamConfig
 from src.pipeline.config.common import EnvSetup, Constants
 
@@ -17,8 +15,7 @@ def print_count(element):
     print(f"{default_timestamp_formated()} Qtde Messages Processed: {len(element[0][1])}")
 
 
-# pipeline_logger = logger()
-pipeline_options = PipelineOptions.from_dictionary(BeamConfig(EnvSetup.TEST).get_pipeline_options())
+pipeline_options = PipelineOptions.from_dictionary(BeamConfig(EnvSetup.PROD).get_pipeline_options())
 
 with beam.Pipeline(options=pipeline_options) as p:
     messages = p | 'ReadFromPubSub' >> beam.io.ReadFromPubSub(subscription=Constants.PUBSUB_SUBSCRIPTION)
