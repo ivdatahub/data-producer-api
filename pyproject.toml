@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "gcp-streaming-pipeline"
+name = "data-producer-api"
 version = "v1.0.0"
-description = "Complete ETL and scalable solution using GCP "
+description = "FastAPI application for sending data to Pub/Sub, used for load testing and triggering pipelines"
 authors = ["IvanildoBarauna <ivanildo.jnr@outlook.com>"]
 readme = "README.md"
 license = "MIT"
@@ -12,19 +12,11 @@ python = "^3.9"
 google-cloud-pubsub = "^2.22.0"
 fastapi = "^0.111.1"
 uvicorn = "^0.30.3"
-grpcio = "^1.65.1"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
 coverage = "^7.5.4"
 pytest-mock = "^3.14.0"
-apache-beam = {extras = ["gcp"], version = "^2.57.0"}
-
-#[tool.setuptools.packages.find]
-#where = ["gcp-streaming-pipeline"]
-#include = ["*"]
-
 
 [build-system]
 requires = ["poetry-core"]

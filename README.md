@@ -1,4 +1,6 @@
-## GCP-streaming-pipeline: Data Pipeline for ingest data in near real time
+## Data Producer API: FastAPI application for sending data to Pub/Sub, used for load testing and triggering pipelines
+
+
 ![Project Status](https://img.shields.io/badge/status-development-yellow?style=for-the-badge&logo=github)
 ![Python Version](https://img.shields.io/badge/python-3.9-blue?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=mit)
@@ -14,26 +16,17 @@
 
 [![Codecov](https://img.shields.io/codecov/c/github/IvanildoBarauna/GCP-streaming-pipeline?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/IvanildoBarauna/GCP-streaming-pipeline)
 
-## Project Summary
-
-This project aims to develop a data pipeline for consuming API data in near real time.
-The pipeline will be responsible for extracting data from an API, transforming it into a suitable format, and loading it into a data storage system.
-The pipeline will be implemented using Google Cloud Platform (GCP) services, including Cloud Pub/Sub, Cloud Run, and Cloud Storage and Cloud BigQuery.
-
-
 ## Development Stack
 
 [![My Skills](https://skillicons.dev/icons?i=pycharm,python,github,gcp,docker,fastapi,postman&perline=7)](https://skillicons.dev)
 
 ## Cloud Stack (GCP)
-<img src="docs/icons/cloud-build.png" Alt="Cloud Build" width="50" height="50"><img src="docs/icons/artifact-registry.png" Alt="Artifact Registry" width="50" height="50"><img src="docs/icons/cloud-run.png" Alt="Cloud Run" width="50" height="50"><img src="docs/icons/pubsub.png" Alt="Pub/Sub" width="50" height="50"><img src="docs/icons/dataflow.png" Alt="Dataflow" width="50" height="50"><img src="docs/icons/bigquery.png" Alt="BigQuery" width="50" height="50">
+<img src="docs/icons/cloud-build.png" Alt="Cloud Build" width="50" height="50"><img src="docs/icons/artifact-registry.png" Alt="Artifact Registry" width="50" height="50"><img src="docs/icons/cloud-run.png" Alt="Cloud Run" width="50" height="50"><img src="docs/icons/pubsub.png" Alt="Pub/Sub" width="50" height="50">
 
 - Cloud Build: Continuous Integration and Continuous Deployment (CI/CD) service provided by GCP integrated with GitHub Actions
 - Artifact Registry: Private Docker container registry provided by GCP for storing FastAPI image.
 - Cloud Run: Fully managed serverless container runtime provided by GCP for running FastAPI Application.
 - Pub/Sub: Messaging service provided by GCP for sending and receiving messages between FastAPI and Dataflow pipeline.
-- Dataflow: Serverless data processing service provided by GCP for executing the ETL process.
-- BigQuery: Fully managed, serverless data warehouse provided by GCP for storing and analyzing large datasets.
 
 ## Continuous Integration and Continuous Deployment (CI/CD, DevOps)
 ![My Skills](https://skillicons.dev/icons?i=githubactions)
@@ -64,9 +57,6 @@ See the following docs:
 - Documentation: Creation of detailed documentation to facilitate the understanding and use of the application, including installation instructions, usage examples and troubleshooting guides.
 
 
-# Data Pipeline Process:
+## API Documentation
 
-1. Datasource: The data source is an API that provides data in real time. The API returns the data in JSON format. (The implementation of the API is part of the project, so it is not necessary to make requests to an external API).
-2. Data Extraction: The data extraction process consists of making requests to the API to obtain the data. The requests are made in parallel workers using Cloud Dataflow to optimize the process. The data is extracted in JSON format.
-3. Data Transformation: The data transformation process consists of converting the data to BigQuery Schema. The transformation is done using Cloud Dataflow in parallel workers to optimize the process.
-4. Data Loading: The data loading process consists of loading the data into BigQuery. The data is loaded in parallel workers using Cloud Dataflow to optimize the process.
+- TODO: Add Swagger docs or similar
