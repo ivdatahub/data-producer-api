@@ -5,13 +5,14 @@ description = "Complete ETL and scalable solution using GCP "
 authors = ["IvanildoBarauna <ivanildo.jnr@outlook.com>"]
 readme = "README.md"
 license = "MIT"
-packages = [{ include = "src" }]
+packages = [{ include = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 google-cloud-pubsub = "^2.22.0"
 fastapi = "^0.111.1"
 uvicorn = "^0.30.3"
+grpcio = "^1.65.1"
 
 
 [tool.poetry.group.dev.dependencies]
