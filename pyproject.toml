@@ -13,6 +13,7 @@ google-cloud-pubsub = "^2.22.0"
 fastapi = "^0.111.1"
 uvicorn = "^0.30.3"
 datadog = "^0.49.1"
+google-cloud-secret-manager = "^2.20.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
