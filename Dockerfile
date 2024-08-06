@@ -1,5 +1,7 @@
 FROM python:3.9-slim
 
+ENV env=production
+
 # Defina a variável de ambiente para não gerar bytecode compilado
 ENV PYTHONDONTWRITEBYTECODE=1
 

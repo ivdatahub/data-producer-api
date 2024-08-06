@@ -1,31 +1,29 @@
 import json
-from src.api.application.ports.send_api_data import ISendApiData
 from google.cloud import pubsub_v1
+from fastapi import HTTPException
+from src.api.application.ports.send_api_data import ISendApiData
+from src.api.application.utils.contants import PROJECT_ID
 
 
 class PubSub(ISendApiData):
     @staticmethod
-    def send_data(data: dict):
+    def send_data(data: dict, metrics):
         data_str = json.dumps(data)
-        message = data_str.encode('utf-8')
+        message = data_str.encode("utf-8")
 
         publisher = pubsub_v1.PublisherClient()
-        topic_name = "projects/ivanildobarauna/topics/gcp-streaming-pipeline"
+        topic_name = f"projects/{PROJECT_ID}/topics/gcp-streaming-pipeline"
 
         try:
             future = publisher.publish(topic_name, data=message)
-        except Exception as e:
-            print(f"Error sending message to Pub/Sub topic: {topic_name}")
-            raise e
+        except Exception:
+            raise HTTPException(
+                status_code=500, detail="Error sending message to Pub/Sub topic"
+            )
 
         if not future.result():
-            return {
-                "status": "error",
-                "data": data,
-                "future": future
-            }
+            return {"status": "error", "data": data, "future": future}
 
-        return {
-                "status": "success",
-                "message_id": future.result()
-            }
+        metrics.execute("data_producer_api.sent_message", 1)
+
+        return {"status": "success", "message_id": future.result()}
