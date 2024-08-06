@@ -3,6 +3,7 @@ from google.cloud import pubsub_v1
 from fastapi import HTTPException
 from src.api.application.ports.send_api_data import ISendApiData
 from src.api.application.utils.contants import PROJECT_ID
+import threading
 
 
 class PubSub(ISendApiData):
@@ -22,7 +23,9 @@ class PubSub(ISendApiData):
             )
 
         if not future.result():
-            return {"status": "error", "data": data, "future": future}
+            raise HTTPException(
+                status_code=500, detail="Error sending message to Pub/Sub topic"
+            )
 
         metrics.execute("data_producer_api.sent_message", 1)
 

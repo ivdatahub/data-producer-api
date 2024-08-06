@@ -1,6 +1,7 @@
 from src.api.application.ports.send_api_data import ISendApiData
 from typing import Type
 from fastapi import HTTPException
+import concurrent.futures
 
 
 class SendService:
@@ -11,9 +12,10 @@ class SendService:
         except Exception:
             raise HTTPException(status_code=400, detail="Invalid JSON format")
 
-        send = send_repository.send_data(data=data, metrics=metrics)
+        def snd():
+            send_repository.send_data(data=data, metrics=metrics)
 
-        if not send["status"] == "success":
-            raise HTTPException(status_code=502, detail="Error sending API data")
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            executor.submit(snd)
 
         return {"status": "ok"}
