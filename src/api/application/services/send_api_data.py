@@ -6,14 +6,14 @@ import concurrent.futures
 
 class SendService:
     @staticmethod
-    def send(send_repository: Type[ISendApiData], request_body: dict, metrics) -> dict:
+    def send(send_repository: Type[ISendApiData], request_body: dict) -> dict:
         try:
             data = request_body
         except Exception:
             raise HTTPException(status_code=400, detail="Invalid JSON format")
 
         def snd():
-            send_repository.send_data(data=data, metrics=metrics)
+            send_repository.send_data(data=data)
 
         with concurrent.futures.ThreadPoolExecutor() as executor:
             executor.submit(snd)

@@ -1,4 +1,6 @@
 import os
+import logging
+
 from fastapi import FastAPI, Request, HTTPException
 from src.api.application.controller.send_controller import send
 from src.api.application.use_cases.send_metrics import SendMetricsUseCase
@@ -7,6 +9,8 @@ if not os.getenv("env"):
     os.environ["env"] = "test"
 
 app = FastAPI()
+
+logging.basicConfig(level=logging.INFO)
 
 send_metrics = SendMetricsUseCase()
 
@@ -26,5 +30,5 @@ async def send_route(request: Request):
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid JSON format")
 
-    response = send(body, send_metrics)
+    response = send(body)
     return response

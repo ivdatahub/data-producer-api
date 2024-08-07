@@ -1,10 +1,10 @@
 from src.api.application.services.send_api_data import SendService
-from src.api.adapters.pubsub import PubSub
+from src.api.adapters.pubsub import AppQueueAdapter
 
 
-def send(request_body: dict, metrics):
+def send(request_body: dict):
     response = SendService.send(
-        send_repository=PubSub, request_body=request_body, metrics=metrics
+        send_repository=AppQueueAdapter, request_body=request_body
     )
 
     return response
