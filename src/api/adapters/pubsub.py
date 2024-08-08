@@ -1,42 +1,38 @@
 import json
 import queue
-import threading
 from google.cloud import pubsub_v1
 from fastapi import HTTPException
 from src.api.application.ports.send_api_data import ISendApiData
 from src.api.application.utils.contants import PROJECT_ID
 from src.api.application.use_cases.send_metrics import SendMetricsUseCase
-
-app_queue = queue.Queue()
+import concurrent.futures
 
 
 class AppQueueAdapter(ISendApiData):
-    @staticmethod
-    def send_data(data: dict):
-        def queue_publisher():
-            app_queue.put(data)
+    def __init__(self, data: dict):
+        self.executor = concurrent.futures.ThreadPoolExecutor()
+        self.data = data
+        self.metrics = SendMetricsUseCase()
+        self.app_queue = AppQueue().get_queue()
 
-        def queue_consumer():
-            metrics = SendMetricsUseCase()
-            while True:
-                data = app_queue.get()
+    def send_data(self):
+        self.executor.submit(self.queue_publisher)
+        self.executor.submit(self.queue_consumer)
 
-                print(f"processing...{data}")
-                PubSub.publish(data)
-                metrics.execute("data_producer_api.sent_message", 1)
-                print(f"finish...{data}")
+    def queue_publisher(self):
+        self.app_queue.put(self.data)
+        self.metrics.execute("data_producer_api.app_queue_size", self.app_queue.qsize())
 
-                if app_queue.qsize() == 0:
-                    app_queue.task_done()
-                    print("the queue is empty")
-                    break
+    def queue_consumer(self):
+        while True:
+            data = self.app_queue.get()
 
-        thread_queue_publisher = threading.Thread(target=queue_publisher)
-        thread_queue_consumer = threading.Thread(target=queue_consumer)
+            PubSub.publish(data)
+            self.metrics.execute("data_producer_api.sent_message", 1)
+            self.app_queue.task_done()
 
-        thread_queue_publisher.start()
-        thread_queue_consumer.start()
-        thread_queue_publisher.join()
+            if self.app_queue.qsize() == 0:
+                break
 
 
 class PubSub:
@@ -59,3 +55,23 @@ class PubSub:
             raise HTTPException(
                 status_code=500, detail="Error sending message to Pub/Sub topic"
             )
+
+
+class Singleton:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls, *args, **kwargs)
+
+        return cls._instance
+
+
+class AppQueue(Singleton):
+    def __init__(self) -> None:
+        if not hasattr(self, "initialized"):
+            self.app_queue = queue.Queue()
+            self.initialized = True
+
+    def get_queue(self):
+        return self.app_queue

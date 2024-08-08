@@ -12,10 +12,6 @@ class SendService:
         except Exception:
             raise HTTPException(status_code=400, detail="Invalid JSON format")
 
-        def snd():
-            send_repository.send_data(data=data)
-
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            executor.submit(snd)
+        send_repository(data=data).send_data()
 
         return {"status": "ok"}

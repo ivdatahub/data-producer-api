@@ -1,8 +1,9 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class ISendApiData(ABC):
-    @staticmethod
-    @abstractmethod
-    def send_data(data: dict):
+    def __init__(self, data: dict):
+        pass
+
+    def send_data(self):
         pass
