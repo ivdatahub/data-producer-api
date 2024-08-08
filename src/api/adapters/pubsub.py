@@ -21,10 +21,12 @@ class AppQueueAdapter(ISendApiData):
 
     def queue_publisher(self):
         self.app_queue.put(self.data)
-        self.metrics.execute("data_producer_api.app_queue_size", self.app_queue.qsize())
 
     def queue_consumer(self):
         while True:
+            self.metrics.execute(
+                "data_producer_api.app_queue_size", self.app_queue.qsize()
+            )
             data = self.app_queue.get()
 
             PubSub.publish(data)
