@@ -4,6 +4,7 @@ from google.cloud import pubsub_v1
 from fastapi import HTTPException
 from src.api.application.ports.send_api_data import ISendApiData
 from src.api.application.utils.contants import PROJECT_ID
+from src.api.application.utils.singleton import Singleton
 from src.api.application.use_cases.send_metrics import SendMetricsUseCase
 import concurrent.futures
 
@@ -16,11 +17,8 @@ class AppQueueAdapter(ISendApiData):
         self.app_queue = AppQueue().get_queue()
 
     def send_data(self):
-        self.executor.submit(self.queue_publisher)
-        self.executor.submit(self.queue_consumer)
-
-    def queue_publisher(self):
         self.app_queue.put(self.data)
+        self.executor.submit(self.queue_consumer)
 
     def queue_consumer(self):
         while True:
@@ -57,16 +55,6 @@ class PubSub:
             raise HTTPException(
                 status_code=500, detail="Error sending message to Pub/Sub topic"
             )
-
-
-class Singleton:
-    _instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls, *args, **kwargs)
-
-        return cls._instance
 
 
 class AppQueue(Singleton):

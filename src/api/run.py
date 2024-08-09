@@ -25,7 +25,6 @@ async def send_route(request: Request):
     try:
         body = await request.json()
     except Exception:
-        raise HTTPException(status_code=400, detail="Invalid JSON format")
+        raise HTTPException(status_code=400, detail="Invalid request body")
 
-    response = send(body)
-    return response
+    return send(body)

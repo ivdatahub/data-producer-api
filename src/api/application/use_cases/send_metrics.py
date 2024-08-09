@@ -1,15 +1,6 @@
 from src.api.application.services.send_metrics import SendMetricsService
 from src.api.adapters.datadog import DataDogAdapter
-
-
-class Singleton:
-    _instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls, *args, **kwargs)
-
-        return cls._instance
+from src.api.application.utils.singleton import Singleton
 
 
 class SendMetricsUseCase(Singleton):
