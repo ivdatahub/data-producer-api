@@ -1,4 +1,4 @@
-from ping_controller import ping
+from src.api.application.controller.ping_controller import ping
 
 
 def test_ping_controller():

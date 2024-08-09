@@ -56,6 +56,8 @@ class PubSub:
                 status_code=500, detail="Error sending message to Pub/Sub topic"
             )
 
+        return {"message_id": future.result()}
+
 
 class AppQueue(Singleton):
     def __init__(self) -> None:

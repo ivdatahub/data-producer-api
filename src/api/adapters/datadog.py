@@ -1,7 +1,7 @@
 import os
+from datadog import initialize, statsd
 from src.api.application.ports.send_metrics import ISendMetrics
 from src.api.application.use_cases.get_metrics_server import get_metrics_server_address
-from datadog import initialize, statsd
 
 
 class DataDogAdapter(ISendMetrics):
