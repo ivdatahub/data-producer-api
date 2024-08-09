@@ -1,0 +1,16 @@
+runtime: custom
+env: flex
+service: data-producer-api
+manual_scaling:
+  instances: 1
+
+resources:
+  cpu: 0.25
+  memory_gb: 0.6
+  disk_size_gb: 10
+
+entrypoint: gunicorn -w 4 -k uvicorn.workers.UvicornWorker src.api.run:app
+
+handlers:
+  - url: /.*
+    script: auto
