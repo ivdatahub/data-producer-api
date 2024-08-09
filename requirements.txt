@@ -10,7 +10,7 @@ datadog==0.49.1
 dnspython==2.6.1
 email_validator==2.2.0
 exceptiongroup==1.2.2
-fastapi==0.111.1
+fastapi==0.112.0
 fastapi-cli==0.0.4
 google-api-core==2.19.1
 google-auth==2.32.0
