@@ -41,4 +41,4 @@ jobs:
 
     environment:
       name: development
-      url: https://github.com/IvanildoBarauna/GCP-streaming-pipeline/actions/workflows/CI-CD.yaml
+      url: https://github.com/IvanildoBarauna/data-producer-api/actions/workflows/CI-CD.yaml
