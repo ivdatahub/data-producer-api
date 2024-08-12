@@ -1,5 +1,5 @@
 from src.api.application.services.send_metrics import SendMetricsService
-from src.api.adapters.datadog import DataDogAdapter
+from src.api.adapters.datadog_adapter import DataDogAdapter
 from src.api.application.utils.singleton import Singleton
 
 
