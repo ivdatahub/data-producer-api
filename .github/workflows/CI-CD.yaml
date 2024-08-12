@@ -38,7 +38,3 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml
-
-    environment:
-      name: development
-      url: https://github.com/IvanildoBarauna/data-producer-api/actions/workflows/CI-CD.yaml
