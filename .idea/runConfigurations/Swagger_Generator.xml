@@ -1,0 +1,25 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Swagger Generator" type="SwaggerCodegen" editBeforeRun="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <option name="allowRunningInParallel" value="false" />
+    <option name="customTemplatesPath" value="" />
+    <option name="envs">
+      <map />
+    </option>
+    <option name="generateToPath" value="$PROJECT_DIR$/docs/api_documentation/src" />
+    <option name="generationParameters">
+      <list />
+    </option>
+    <option name="generatorType" value="OPENAPI_GENERATOR_V5" />
+    <option name="jdkPath" value="$APPLICATION_HOME_DIR$/jbr/Contents/Home/bin/java" />
+    <option name="language" value="openapi" />
+    <option name="passParentEnvs" value="true" />
+    <option name="programParameters" />
+    <option name="projectPathOnTarget" />
+    <option name="selectedOptions">
+      <list />
+    </option>
+    <option name="specificationPath" value="$PROJECT_DIR$/docs/api_documentation/swagger.yaml" />
+    <option name="workingDirectory" value="$PROJECT_DIR$/docs/api_documentation" />
+    <method v="2" />
+  </configuration>
+</component>
