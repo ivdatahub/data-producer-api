@@ -1,14 +1,31 @@
 import os
-
 from fastapi import FastAPI, Request, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from src.api.application.controller.send_controller import send
 from src.api.application.use_cases.send_metrics import SendMetricsUseCase
 
-if not os.getenv("env"):
-    os.environ["env"] = "test"
 
-app = FastAPI()
+def application_setup():
+    if not os.getenv("env"):
+        os.environ["env"] = "test"
 
+    app = FastAPI()
+    app.title = "data-producer-api"
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],  # Allowed domains
+        allow_credentials=True,
+        allow_methods=["GET", "POST"],  # Only allow GET requests
+        allow_headers=[
+            "Authorization",
+            "Content-Type",
+        ],  # Allow the Authorization and Content-Type header
+    )
+
+    return app
+
+
+app = application_setup()
 send_metrics = SendMetricsUseCase()
 
 

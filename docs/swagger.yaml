@@ -1,0 +1,120 @@
+openapi: 3.0.0
+info:
+  title: data-producer-api
+  description: FastAPI application for sending data to Pub/Sub, used for load testing and triggering pipelines
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Tests
+paths:
+  /ping:
+    get:
+      tags:
+        - health-checks
+      operationId: ping
+      summary: Ping the server
+      description: Returns status 200 with a message in the response body.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+                schema:
+                    $ref: '#/components/schemas/PingResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedResponse'
+
+  /send:
+    post:
+      tags:
+        - data-producer
+      operationId: send
+      summary: Send data to Pub/Sub
+      description: Receives the request body, transforms it into JSON, and sends it to Pub/Sub. Returns status 201 with a message in the response body.
+      requestBody:
+        description: Data to be sent to Pub/Sub
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendRequest'
+      responses:
+        '201':
+          description: Data created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedResponse'
+
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    PingResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: pong
+    SendRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        created_at:
+          type: integer
+          example: 1642742400
+        data:
+          type: object
+          additionalProperties: true
+          example: {
+            "id": "1",
+            "name": "example",
+            "description": "example description",
+            "price": 9.99
+          }
+    SuccessResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: created
+    UnauthorizedResponse:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Unauthorized
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Internal server error
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
