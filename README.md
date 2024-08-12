@@ -59,4 +59,4 @@ See the following docs:
 
 ## API Documentation
 
-- TODO: Add Swagger docs or similar
+[Swagger UI](https://ivanildobarauna.github.io/data-producer-api/)
