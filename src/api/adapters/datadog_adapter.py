@@ -10,9 +10,11 @@ class DataDogAdapter(ISendMetrics):
             "statsd_host": get_metrics_server_address(),
             "statsd_port": 8125,
         }
-        self.dd_client = initialize(**self.client_options)
+        initialize(**self.client_options)
 
-    def send_metric(self, metric_name: str, metric_value: int) -> None:
+    def metric_incr(self, metric_name: str, action: str, metric_value: int) -> None:
         statsd.increment(
-            metric=metric_name, value=metric_value, tags=["env:" + os.getenv("env")]
+            metric=metric_name,
+            value=metric_value,
+            tags=["env:" + os.getenv("env"), "action:" + action],
         )

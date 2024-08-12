@@ -10,5 +10,5 @@ class SendMetricsUseCase(Singleton):
             self.send_metrics_service = SendMetricsService(self.metrics_repository)
             self.initialized = True
 
-    def execute(self, metric_name: str, metric_value: int) -> None:
-        self.send_metrics_service.send(metric_name, metric_value)
+    def execute(self, metric_name: str, action: str, metric_value: int) -> None:
+        self.send_metrics_service.send(metric_name, action, metric_value)
