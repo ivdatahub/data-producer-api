@@ -1,6 +1,6 @@
 import json
 import queue
-import time
+from datetime import datetime
 from google.cloud import pubsub_v1
 from fastapi import HTTPException
 from src.api.application.ports.send_api_data import ISendApiData
@@ -22,7 +22,7 @@ class AppQueueAdapter(ISendApiData):
         self.executor.submit(self.queue_consumer)
 
     def queue_consumer(self):
-        start_time = int(time.time())
+        start_time = datetime.now()
         while True:
             self.metrics.execute(
                 metric_name="data_producer_api",
@@ -38,11 +38,10 @@ class AppQueueAdapter(ISendApiData):
             self.app_queue.task_done()
 
             if self.app_queue.qsize() == 0:
-                end_time = int(time.time())
                 self.metrics.execute(
                     metric_name="data_producer_api",
                     action="consumer_time",
-                    metric_value=end_time - start_time,
+                    metric_value=(datetime.now() - start_time).microseconds,
                 )
                 break
 
