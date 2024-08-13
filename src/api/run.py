@@ -31,13 +31,13 @@ send_metrics = SendMetricsUseCase()
 
 @app.get("/ping")
 async def ping():
-    send_metrics.execute(metric_name="data_producer_api", action="ping", metric_value=1)
+    send_metrics.incr(metric_name="data_producer_api", action="ping", metric_value=1)
     return {"message": "pong"}
 
 
 @app.post("/send")
 async def send_route(request: Request):
-    send_metrics.execute(
+    send_metrics.incr(
         metric_name="data_producer_api", action="received_request", metric_value=1
     )
 

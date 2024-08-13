@@ -18,3 +18,10 @@ class DataDogAdapter(ISendMetrics):
             value=metric_value,
             tags=["env:" + os.getenv("env"), "action:" + action],
         )
+
+    def metric_timing(self, metric_name: str, action: str, time_duration: int) -> None:
+        statsd.histogram(
+            metric=metric_name,
+            value=time_duration,
+            tags=["env:" + os.getenv("env"), "action:" + action],
+        )

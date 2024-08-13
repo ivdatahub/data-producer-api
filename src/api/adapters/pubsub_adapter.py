@@ -24,7 +24,7 @@ class AppQueueAdapter(ISendApiData):
     def queue_consumer(self):
         start_time = datetime.now()
         while True:
-            self.metrics.execute(
+            self.metrics.incr(
                 metric_name="data_producer_api",
                 action="app_queue_size",
                 metric_value=self.app_queue.qsize(),
@@ -32,16 +32,16 @@ class AppQueueAdapter(ISendApiData):
             data = self.app_queue.get()
 
             PubSub.publish(data)
-            self.metrics.execute(
+            self.metrics.incr(
                 metric_name="data_producer_api", action="sent_message", metric_value=1
             )
             self.app_queue.task_done()
 
             if self.app_queue.qsize() == 0:
-                self.metrics.execute(
+                self.metrics.timing(
                     metric_name="data_producer_api",
                     action="consumer_time",
-                    metric_value=(datetime.now() - start_time).microseconds,
+                    time_duration=(datetime.now() - start_time).microseconds,
                 )
                 break
 
