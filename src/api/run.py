@@ -31,13 +31,15 @@ send_metrics = SendMetricsUseCase()
 
 @app.get("/ping")
 async def ping():
-    send_metrics.execute("data_producer_api.ping", 1)
+    send_metrics.incr(metric_name="data_producer_api", action="ping", metric_value=1)
     return {"message": "pong"}
 
 
 @app.post("/send")
 async def send_route(request: Request):
-    send_metrics.execute("data_producer_api.received_request", 1)
+    send_metrics.incr(
+        metric_name="data_producer_api", action="received_request", metric_value=1
+    )
 
     try:
         body = await request.json()

@@ -1,6 +1,6 @@
 import json
 from unittest.mock import patch, MagicMock
-from src.api.adapters.pubsub import PubSub
+from src.api.adapters.pubsub_adapter import PubSub
 
 
 def test_send_data(mocker):

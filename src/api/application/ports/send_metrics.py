@@ -6,5 +6,8 @@ class ISendMetrics(ABC):
     def __init__(self) -> None:
         pass
 
-    def send_metric(self, metric_name: str, metric_value: int) -> None:
+    def metric_incr(self, metric_name: str, action: str, metric_value: int) -> None:
+        pass
+
+    def metric_timing(self, metric_name: str, action: str, time_duration: int) -> None:
         pass

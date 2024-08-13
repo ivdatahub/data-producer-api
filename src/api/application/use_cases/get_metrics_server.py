@@ -1,7 +1,7 @@
 from src.api.application.services.get_metrics_server_address import (
     GetSecretValueService,
 )
-from src.api.adapters.secret_manager import SecretManagerAdapter
+from src.api.adapters.secret_manager_adapter import SecretManagerAdapter
 
 
 def get_metrics_server_address() -> str:
