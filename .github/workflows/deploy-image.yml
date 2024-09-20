@@ -64,5 +64,5 @@ jobs:
 
 
     environment:
-        name: registry-production
+        name: github-packages
         url: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
