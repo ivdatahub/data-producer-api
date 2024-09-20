@@ -1,12 +1,12 @@
-# Contributing to GCP-streaming-pipeline
+# Contributing to data-producer-api
 
-Firstly, thank you very much for your interest in contributing to GCP-streaming-pipeline! This document provides guidelines to help ensure the contribution process is smooth and efficient for everyone involved.
+Firstly, thank you very much for your interest in contributing to data-producer-api! This document provides guidelines to help ensure the contribution process is smooth and efficient for everyone involved.
 
 ## How to Contribute
 
 ### 1. Fork the Repository
 
-1. Go to [repository page](https://github.com/IvanildoBarauna/GCP-streaming-pipeline).
+1. Go to [repository page](https://github.com/ivdatahub/data-producer-api).
 2. Click the "Fork" button in the top right corner to create a copy of the repository on your GitHub.
 
 ### 2. Clone the Repository
@@ -14,12 +14,13 @@ Firstly, thank you very much for your interest in contributing to GCP-streaming-
 Clone the forked repository to your local machine using the command:
 
 ```sh
-git clone https://github.com/seu-usuario/GCP-streaming-pipeline.git
+git clone https://github.com/<your-username>/data-producer-api.git
 ```
 
 ### 3. Create a Branch
 
 Create a branch for your feature or bug fix:
+
 ```sh
 git checkout -b feat-branchname
 ```
@@ -31,9 +32,11 @@ Make the desired changes to the code. Be sure to follow code style and documenta
 ### 5. Commit your Changes
 
 Commit your changes with a clear and descriptive message:
+
 ```sh
 git add .
 ```
+
 ```sh
 git commit -m "Detailed description of changes"
 ```
@@ -67,7 +70,7 @@ git push origin branchname
 
 ## Reporting Bugs
 
-If you find a bug, please open an [issue](https://github.com/IvanildoBarauna/GCP-streaming-pipeline/issues) and provide as much information as possible, including:
+If you find a bug, please open an [issue](https://github.com/IvanildoBarauna/data-producer-api/issues) and provide as much information as possible, including:
 
 - Detailed description of the problem.
 - Steps to reproduce the issue.
@@ -76,8 +79,8 @@ If you find a bug, please open an [issue](https://github.com/IvanildoBarauna/GCP
 
 ## Improvement suggestions
 
-If you have suggestions for improvements, please open an [issue](https://github.com/IvanildoBarauna/GCP-streaming-pipeline/issues) and describe your idea in detail.
+If you have suggestions for improvements, please open an [issue](https://github.com/IvanildoBarauna/data-producer-api/issues) and describe your idea in detail.
 
 ## Thanks
 
-Thanks for considering contributing to GCP-streaming-pipeline! Every contribution is valuable and helps to improve the project.
+Thanks for considering contributing to data-producer-api! Every contribution is valuable and helps to improve the project.

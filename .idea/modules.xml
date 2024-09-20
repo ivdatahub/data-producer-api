@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GCP-streaming-pipeline.iml" filepath="$PROJECT_DIR$/.idea/GCP-streaming-pipeline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/data-producer-api.iml" filepath="$PROJECT_DIR$/.idea/data-producer-api.iml" />
     </modules>
   </component>
 </project>
