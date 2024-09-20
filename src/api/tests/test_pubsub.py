@@ -15,6 +15,6 @@ def test_send_data(mocker):
 
     assert result["message_id"] == "mock_message_id"
     mock_publish.assert_called_once_with(
-        "projects/ivanildobarauna/topics/gcp-streaming-pipeline",
+        "projects/data-producer-api/topics/data-producer-api",
         data=json.dumps(data).encode("utf-8"),
     )
