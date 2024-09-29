@@ -1,6 +1,6 @@
 ## Data Producer API: FastAPI application for sending data to Pub/Sub, used for load testing and triggering pipelines
 
-![Project Status](https://img.shields.io/badge/status-development-yellow?style=for-the-badge&logo=github)
+![Project Status](https://img.shields.io/badge/status-done-green?style=for-the-badge&logo=github)
 ![Python Version](https://img.shields.io/badge/python-3.9-blue?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=mit)
 
