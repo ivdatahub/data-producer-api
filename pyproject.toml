@@ -9,7 +9,7 @@ packages = [{ include = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-google-cloud-pubsub = "^2.23.1"
+google-cloud-pubsub = "^2.25.1"
 fastapi = "^0.115.0"
 uvicorn = "^0.30.6"
 datadog = "^0.50.1"
