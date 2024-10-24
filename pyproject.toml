@@ -10,8 +10,8 @@ packages = [{ include = "src"}]
 [tool.poetry.dependencies]
 python = "^3.9"
 google-cloud-pubsub = "^2.26.1"
-fastapi = "^0.115.0"
-uvicorn = "^0.32.0"
+fastapi = "^0.115.3"
+uvicorn = "^0.31.0"
 datadog = "^0.50.1"
 google-cloud-secret-manager = "^2.20.2"
 coverage = "^7.6.4"
