@@ -403,13 +403,13 @@ libcst = ["libcst (>=0.3.10)"]
 
 [[package]]
 name = "google-cloud-secret-manager"
-version = "2.21.0"
+version = "2.21.1"
 description = "Google Cloud Secret Manager API client library"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "google_cloud_secret_manager-2.21.0-py2.py3-none-any.whl", hash = "sha256:b7fed5c2f3be5e10d94053ea3a7c6a7c5813d38da39c678ef6c1137d6e25a310"},
-    {file = "google_cloud_secret_manager-2.21.0.tar.gz", hash = "sha256:d1ae84ecf98cfc319c9a3f1012355cebd19317b662cc9dff1a2c36234580807b"},
+    {file = "google_cloud_secret_manager-2.21.1-py2.py3-none-any.whl", hash = "sha256:a259932a3c0951f061b60cacfbc20831af92a67fd8cd7396a9f59504bc5cc251"},
+    {file = "google_cloud_secret_manager-2.21.1.tar.gz", hash = "sha256:f104f002751345cba39152cef3aed3f4375edf0b2542c8bd1b7712d44fe975b6"},
 ]
 
 [package.dependencies]
@@ -1101,4 +1101,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "29421a0a30a08a52e0f5d42e5c667a5918ca4dee88b83368f80854da36ea0668"
+content-hash = "f61aafdc949429eb9b96ab0b64c916c88d8ea4378b275d677ef0575b5762e7cb"
