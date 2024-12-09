@@ -14,12 +14,12 @@ fastapi = "^0.115.4"
 uvicorn = "^0.32.0"
 datadog = "^0.50.1"
 google-cloud-secret-manager = "^2.21.1"
-coverage = "^7.6.4"
+coverage = "^7.6.9"
 pytest = "^8.3.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
-coverage = "^7.6.8"
+coverage = "^7.6.9"
 pytest-mock = "^3.14.0"
 
 [build-system]
