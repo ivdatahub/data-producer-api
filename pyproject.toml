@@ -11,7 +11,7 @@ packages = [{ include = "src"}]
 python = "^3.9"
 google-cloud-pubsub = "^2.27.1"
 fastapi = "^0.115.4"
-uvicorn = "^0.32.0"
+uvicorn = "^0.34.0"
 datadog = "^0.50.1"
 google-cloud-secret-manager = "^2.21.1"
 coverage = "^7.6.4"
